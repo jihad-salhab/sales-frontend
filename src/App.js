@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 
 import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import AgentDashboard from './components/Agent/AgentDashboard';
 import Users from './scenes/Users';
@@ -28,6 +29,7 @@ function PageContent() {
             isAuthenticated ? <Navigate to="/dashboard" /> : <Login setUser={setUser} />
           }
         />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/dashboard/*" element={<Dashboard user={user} />} />
         <Route path="/agent-dashboard" element={<AgentDashboard />} />
         <Route path='/users'  element={  isAuthenticated ? <Users  /> : <Login setUser={setUser} />} />
